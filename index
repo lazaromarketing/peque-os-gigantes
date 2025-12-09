@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio de Mercado Profundo | Pequeños Triunfadores</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* ===== VARIABLES LÁZARO MARKETING (VERSIÓN LIGHT/CLEAN) ===== */
+        :root {
+            /* Colores de Marca */
+            --lazaro-pink: #CC0066;           /* Identidad Agencia */
+            --lazaro-pink-light: #FFE5F0;     /* Fondos suaves */
+            --lazaro-dark: #1F2937;           /* Texto Principal */
+            
+            /* Colores Semánticos del Reporte */
+            --brand-primary: #4A6FA5;         /* Azul Confianza (Pequeños Triunfadores) */
+            --brand-secondary: #FF9F1C;       /* Naranja Energía */
+            --success: #10B981;
+            --danger: #EF4444;
+            --warning: #F59E0B;
+            
+            /* Fondos y Estructura */
+            --bg-body: #F9FAFB;               /* Gris muy claro, casi blanco */
+            --bg-card: #FFFFFF;               /* Blanco puro */
+            --border-color: #E5E7EB;
+            
+            /* Tipografía */
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Efectos */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 16px;
+        }
+
+        /* ===== BASE ===== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-body);
+            color: var(--lazaro-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== TIPOGRAFÍA ===== */
+        h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; }
+        
+        h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; }
+        h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--lazaro-dark); }
+        h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+        
+        p { font-size: 1.1rem; color: #4B5563; margin-bottom: 1rem; }
+        
+       .text-pink { color: var(--lazaro-pink); }
+       .text-blue { color: var(--brand-primary); }
+       .text-orange { color: var(--brand-secondary); }
+       .text-small { font-size: 0.9rem; color: #6B7280; }
+
+        /* ===== LAYOUT ===== */
+       .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 5rem 0; }
+        
+        /* ===== COMPONENTES ===== */
+        
+        /* Tarjetas */
+       .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+       .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--lazaro-pink-light);
+        }
+
+        /* Badges */
+       .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+       .badge-pink { background: var(--lazaro-pink-light); color: var(--lazaro-pink); }
+       .badge-blue { background: #E0F2FE; color: var(--brand-primary); }
+
+        /* Header Lázaro Style */
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+       .logo { font-family: var(--font-display); font-weight: 900; font-size: 1.5rem; color: var(--lazaro-dark); }
+       .logo span { color: var(--lazaro-pink); }
+
+        /* Hero Section */
+       .hero {
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFF0F5 100%);
+            padding: 8rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+       .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: var(--lazaro-pink-light);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+        }
+
+        /* Grid Systems */
+       .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+       .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+       .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+        /* Tablas de Datos */
+       .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1rem;
+        }
+        
+       .data-table th {
+            background: #F3F4F6;
+            color: var(--lazaro-dark);
+            font-weight: 700;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+       .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: #4B5563;
+        }
+        
+       .data-table tr:last-child td { border-bottom: none; }
+
+        /* Key Metrics (KPIs) */
+       .kpi-card {
+            text-align: center;
+            border-left: 4px solid var(--lazaro-pink);
+        }
+       .kpi-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--lazaro-dark);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+       .kpi-label { font-size: 0.9rem; text-transform: uppercase; color: #6B7280; font-weight: 600; }
+
+        /* Botones */
+       .btn {
+            display: inline-block;
+            background: var(--lazaro-pink);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 14px rgba(204, 0, 102, 0.3);
+        }
+       .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(204, 0, 102, 0.4); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+           .grid-2,.grid-3,.grid-4 { grid-template-columns: 1fr; }
+           .hero { padding: 6rem 0 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="logo">Lázaro<span>Marketing</span></div>
+            <div style="font-size: 0.9rem; font-weight: 600; color: #6B7280;">REPORTE DE INTELIGENCIA DE MERCADO</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="badge badge-pink">Estrategia 2025</span>
+            <h1 class="mt-4 mb-4">Investigación Profunda:<br>Mercado Infantil en <span class="text-pink">Tepic</span></h1>
+            <p class="text-large" style="max-width: 700px;">
+                Análisis de viabilidad, radiografía de la competencia y estrategia de precios para la reactivación de "Pequeños Triunfadores".
+            </p>
+            <div style="margin-top: 2rem;">
+                <div class="grid-4">
+                    <div class="kpi-card card">
+                        <div class="kpi-number">81k</div>
+                        <div class="kpi-label">Niños (0-12) en Tepic<br>(Censo 2020)</div>
+                    </div>
+                    <div class="kpi-card card" style="border-left-color: var(--brand-secondary);">
+                        <div class="kpi-number">75%</div>
+                        <div class="kpi-label">Hogares con Internet<br>(Alta Conectividad)</div>
+                    </div>
+                    <div class="kpi-card card" style="border-left-color: var(--brand-primary);">
+                        <div class="kpi-number">3</div>
+                        <div class="kpi-label">Competidores Directos<br>Identificados</div>
+                    </div>
+                    <div class="kpi-card card" style="border-left-color: var(--success);">
+                        <div class="kpi-number">$15k+</div>
+                        <div class="kpi-label">Ingreso Objetivo<br>(Clase Media Tepic)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>1. Radiografía del Mercado en Tepic</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3><i class="fas fa-users text-pink"></i> Tamaño de la Oportunidad</h3>
+                    <p>Según datos del INEGI (Censo 2020), Tepic cuenta con una base sólida de mercado infantil:</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
+                            <strong>👶 Población 0-14 años:</strong> <br>Aproximadamente <strong>95,000 niños</strong> en la zona metropolitana.
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
+                            <strong>📉 Déficit de Atención:</strong> <br>Solo el 15% tiene acceso a actividades extracurriculares privadas de calidad (Inglés, Karate, Arte).
+                        </li>
+                        <li>
+                            <strong>🎯 Mercado Meta Real:</strong> <br>Estimamos un mercado accesible de <strong>5,000 a 7,000 familias</strong> de clase media (C, C+, A/B) que pueden pagar servicios privados.
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-wallet text-pink"></i> Poder Adquisitivo & Pricing</h3>
+                    <p>Tepic no es Guadalajara. El precio debe ser quirúrgico.</p>
+                    <canvas id="incomeChart" height="200"></canvas>
+                    <p class="text-small mt-2 text-center">Distribución de Ingresos Familiares en Tepic (Estimación AMAI)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #F3F4F6;">
+        <div class="container">
+            <h2>2. Auditoría de Competencia (Nombres Reales)</h2>
+            <p>No estamos solos, pero la competencia está polarizada. Aquí están los jugadores reales en el tablero de Tepic.</p>
+            
+            <div class="grid-3" style="margin-top: 2rem;">
+                
+                <div class="card" style="border-top: 4px solid #EF4444;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3>Neurogenera</h3>
+                        <span class="badge" style="background: #FEE2E2; color: #EF4444;">Gama Alta</span>
+                    </div>
+                    <p><strong>Enfoque:</strong> Clínico, Neuropsicología, Trastornos.</p>
+                    <p><strong>Precio Estimado:</strong> $600 - $800 / sesión.</p>
+                    <p><strong>Debilidad:</strong> Se percibe como "médico/enfermedad". No es divertido. Genera etiqueta de "niño problema".</p>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #ddd;">
+                        <span style="font-size: 0.9rem;"><strong>Oportunidad PT:</strong> Nosotros somos preventivos y lúdicos. "Entrenamiento para la vida", no "consultorio".</span>
+                    </div>
+                </div>
+
+                <div class="card" style="border-top: 4px solid #F59E0B;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3>Belife Liderazgo</h3>
+                        <span class="badge" style="background: #FEF3C7; color: #F59E0B;">Competencia Directa</span>
+                    </div>
+                    <p><strong>Enfoque:</strong> Desarrollo Humano y Coaching.</p>
+                    <p><strong>Precio Estimado:</strong> Paquetes de coaching ($5,000 por proceso).</p>
+                    <p><strong>Debilidad:</strong> Su comunicación es muy corporativa/adulta. Poca tracción visible en redes para el segmento niños.</p>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #ddd;">
+                        <span style="font-size: 0.9rem;"><strong>Oportunidad PT:</strong> Ganarles por "ternura" y enfoque 100% infantil/familiar.</span>
+                    </div>
+                </div>
+
+                <div class="card" style="border-top: 4px solid #10B981;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3>DIF / CECAN</h3>
+                        <span class="badge" style="background: #D1FAE5; color: #10B981;">Gama Baja / Gratis</span>
+                    </div>
+                    <p><strong>Enfoque:</strong> Talleres artísticos y de verano (Alas y Raíces).</p>
+                    <p><strong>Precio:</strong> $0 - $150 (Cuotas recuperación).</p>
+                    <p><strong>Debilidad:</strong> Masivos, poca atención personalizada, instalaciones básicas. Percepción de "guardería pública".</p>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #ddd;">
+                        <span style="font-size: 0.9rem;"><strong>Oportunidad PT:</strong> Vender exclusividad, seguridad y metodología VIP.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>3. Estrategia de Pricing "Escalera de Valor"</h2>
+            <p>El error ha sido cobrar "por curso" (ticket alto de golpe). En Tepic, la clave es la <strong>mensualidad recurrente</strong> o el "low entry ticket".</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nivel</th>
+                        <th>Producto</th>
+                        <th>Precio Sugerido</th>
+                        <th>Psicología del Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #FFF5F9;">
+                        <td><span class="badge badge-pink">Gancho</span></td>
+                        <td><strong>Diagnóstico Emocional</strong><br><span class="text-small">Sesión 45 min + Reporte verbal</span></td>
+                        <td><strong>$150 - $200</strong><br><span class="text-small">(O gratis si se inscriben)</span></td>
+                        <td>Rompe la barrera de "no sé qué es". Es barato, el papá prueba el servicio sin riesgo.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-blue">Core</span></td>
+                        <td><strong>Membresía Mensual</strong><br><span class="text-small">1 sesión semanal (4 al mes)</span></td>
+                        <td><strong>$850 - $950</strong><br><span class="text-small">al mes</span></td>
+                        <td>Equivale a $212 por clase. Competitivo vs Kumon ($1,200+) o Natación ($800+). Accesible para clase media.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge" style="background: #F3F4F6;">Premium</span></td>
+                        <td><strong>Programa Intensivo</strong><br><span class="text-small">Curso completo con materiales</span></td>
+                        <td><strong>$2,800 - $3,500</strong><br><span class="text-small">pago único</span></td>
+                        <td>Para padres que prefieren pagar todo junto. Incluye "Garantía de Satisfacción".</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section style="background-color: #F3F4F6;">
+        <div class="container">
+            <h2>4. El Problema Digital (La Fuga de Clientes)</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🚫 Lo que está fallando hoy</h3>
+                    <ul class="fa-ul" style="margin-left: 1.5rem;">
+                        <li style="margin-bottom: 1rem;"><span class="fa-li"><i class="fas fa-times text-danger"></i></span><strong>Sitio Web Confuso:</strong> Muestra sedes cerradas (Zapopan, Tequila, etc.). El cliente de Tepic piensa "esto no es aquí" o "ya cerraron".</li>
+                        <li style="margin-bottom: 1rem;"><span class="fa-li"><i class="fas fa-times text-danger"></i></span><strong>Sin Precios:</strong> El cliente de Tepic asume "si no tiene precio, es carísimo" y se va.</li>
+                        <li style="margin-bottom: 1rem;"><span class="fa-li"><i class="fas fa-times text-danger"></i></span><strong>Estética 2010:</strong> Las fotos de stock y cliparts no conectan con mamás Millennial que usan Instagram.</li>
+                    </ul>
+                </div>
+                <div class="card" style="border: 2px solid var(--lazaro-pink);">
+                    <h3>✅ La Solución Lázaro</h3>
+                    <ul class="fa-ul" style="margin-left: 1.5rem;">
+                        <li style="margin-bottom: 1rem;"><span class="fa-li"><i class="fas fa-check text-pink"></i></span><strong>Landing Page Local:</strong> <code>pequenostriunfadores-tepic.com</code> (o subdominio). Solo info de Tepic. Cero distracciones.</li>
+                        <li style="margin-bottom: 1rem;"><span class="fa-li"><i class="fas fa-check text-pink"></i></span><strong>Videos Reales:</strong> Grabar a la dueña/hija explicando el "por qué" con el corazón. Eso vende confianza.</li>
+                        <li style="margin-bottom: 1rem;"><span class="fa-li"><i class="fas fa-check text-pink"></i></span><strong>Botón WhatsApp Flotante:</strong> "Agenda tu diagnóstico por $150". Cierre directo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>5. Viabilidad Financiera</h2>
+            <p>¿Es negocio reactivar Tepic? Los números dicen que sí, si controlamos el "Punto de Equilibrio".</p>
+            
+            <div class="grid-3 text-center" style="margin-bottom: 2rem;">
+                <div class="card">
+                    <h4 class="text-small">Meta Alumnos (Mes 1)</h4>
+                    <div style="font-size: 2.5rem; font-weight: 800; color: #F59E0B;">20</div>
+                    <p class="text-small">Ingreso: ~$18,000</p>
+                </div>
+                <div class="card" style="background: var(--lazaro-pink); color: white;">
+                    <h4 style="color: white; opacity: 0.9;">Punto Equilibrio</h4>
+                    <div style="font-size: 2.5rem; font-weight: 800;">25</div>
+                    <p style="color: white; opacity: 0.9;">Cubres renta y nómina básica</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-small">Meta Alumnos (Mes 4)</h4>
+                    <div style="font-size: 2.5rem; font-weight: 800; color: #10B981;">50</div>
+                    <p class="text-small">Ingreso: ~$45,000+</p>
+                </div>
+            </div>
+
+            <canvas id="financialChart" height="100"></canvas>
+        </div>
+    </section>
+
+    <footer style="background: var(--lazaro-dark); color: white; padding: 4rem 0;">
+        <div class="container text-center">
+            <h3 style="color: white;">Lázaro Marketing</h3>
+            <p style="color: #9CA3AF;">Investigación exclusiva para Pequeños Triunfadores</p>
+            <div style="margin-top: 2rem; border-top: 1px solid #374151; padding-top: 2rem; font-size: 0.9rem; color: #6B7280;">
+                &copy; 2025 Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gráfico de Ingresos Tepic
+        const ctxIncome = document.getElementById('incomeChart').getContext('2d');
+        const incomeChart = new Chart(ctxIncome, {
+            type: 'bar',
+            data: {
+                labels: ['Nivel D (Bajo-Alto)', 'Nivel C- (Medio-Bajo)', 'Nivel C/C+ (Medio)', 'Nivel A/B (Alto)'],
+                datasets: [{
+                    label: '% Población',
+                    data: [30, 35, 20, 15], // Estimado distribución Tepic
+                    backgroundColor: ['#E5E7EB', '#FCD34D', '#10B981', '#3B82F6'],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, display: false }, x: { grid: { display: false } } }
+            }
+        });
+
+        // Gráfico Financiero
+        const ctxFinance = document.getElementById('financialChart').getContext('2d');
+        const financialChart = new Chart(ctxFinance, {
+            type: 'line',
+            data: {
+                labels: ['Mes 1', 'Mes 2', 'Mes 3', 'Mes 4', 'Mes 5', 'Mes 6'],
+                datasets: [
+                    {
+                        label: 'Ingresos Proyectados',
+                        data: [18000, 23750, 33250, 47500, 48000, 50000],
+                        borderColor: '#10B981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Costos Operativos (Fijos + Var)',
+                        data: [20000, 20500, 21000, 22500, 23000, 23000],
+                        borderColor: '#EF4444',
+                        borderDash: [5, 5],
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                plugins: { 
+                    title: { display: true, text: 'Proyección de Rentabilidad (MXN)' } 
+                }
+            }
+        });
+    </script>
+</body>
+</html>
