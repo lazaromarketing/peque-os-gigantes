@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Reporte Estratégico - PYMES Tepic 2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Branding Colors */
+            --magenta: #CC0066;
+            --magenta-dark: #99004d;
+            --magenta-soft: #fff0f7;
+            --negro: #111827;
+            --gris-oscuro: #1F2937;
+            --gris-medio: #4B5563;
+            --gris-claro: #F3F4F6;
+            --blanco: #FFFFFF;
+            
+            /* Spacing */
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            
+            /* UI Elements */
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--negro);
+            background-color: var(--gris-claro);
+            font-size: 16px;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--negro);
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: 2.5rem; letter-spacing: -1px; }
+        h2 { font-size: 2rem; color: var(--magenta); margin-bottom: 1.5rem; }
+        h3 { font-size: 1.5rem; margin-top: 1.5rem; }
+        h4 { font-size: 1.2rem; color: var(--gris-medio); }
+        
+        p { margin-bottom: 1rem; color: #374151; }
+        
+        strong { color: var(--negro); font-weight: 700; }
+        
+        ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; color: #374151; }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        section {
+            padding: var(--space-lg) 0;
+            background-color: var(--blanco);
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        /* --- ESTILOS MODO OSCURO (FIXED) --- */
+        .dark-section {
+            background-color: var(--negro);
+            color: #e5e7eb;
+            border-bottom: none;
+        }
+        
+        .dark-section h2 { color: var(--blanco); }
+        .dark-section h3 { color: var(--blanco); }
+        .dark-section h4 { color: #9CA3AF; }
+        .dark-section p, .dark-section li { color: #D1D5DB; }
+        .dark-section strong { color: var(--blanco); }
+        .dark-section .subtitle { color: #9CA3AF; }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, var(--blanco) 0%, var(--magenta-soft) 100%);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .header .badge {
+            background: var(--magenta);
+            color: var(--blanco);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .header .subtitle {
+            font-size: 1.25rem;
+            color: var(--gris-medio);
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+        
+        /* Hook Section */
+        .hook-section {
+            background-color: var(--negro);
+            color: var(--blanco);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .hook-section h2 { color: var(--blanco); margin-bottom: 1rem; }
+        .hook-section p { font-size: 1.2rem; color: #D1D5DB; max-width: 800px; margin: 0 auto; }
+
+        /* Acordeones (Estilo Moderno) */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .accordion-item {
+            border: 1px solid #e5e7eb;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--blanco);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .accordion-item:hover {
+            box-shadow: var(--shadow);
+        }
+        
+        .accordion-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: var(--blanco);
+            color: var(--negro);
+            transition: background 0.3s;
+        }
+        
+        .accordion-header.active {
+            background-color: var(--magenta-soft);
+            color: var(--magenta-dark);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+        
+        .accordion-inner {
+            padding: 2rem;
+            border-top: 1px solid #e5e7eb;
+            background: #fff;
+        }
+        
+        /* Acordeon Dark Mode Overrides */
+        .dark-section .accordion-item {
+            background: var(--gris-oscuro);
+            border-color: #374151;
+        }
+        
+        .dark-section .accordion-header {
+            background: var(--gris-oscuro);
+            color: var(--blanco);
+        }
+        
+        .dark-section .accordion-header:hover {
+            background: #374151;
+        }
+        
+        .dark-section .accordion-header.active {
+            background: var(--magenta);
+            color: var(--blanco);
+        }
+        
+        .dark-section .accordion-inner {
+            background: #111827;
+            color: #D1D5DB;
+            border-top-color: #374151;
+        }
+
+        /* Tablas */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--blanco);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .data-table th {
+            background: var(--magenta-soft);
+            color: var(--magenta-dark);
+            font-weight: 700;
+            text-align: left;
+            padding: 1rem;
+        }
+        
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            color: #374151;
+        }
+        
+        .dark-section .data-table {
+            border-color: #374151;
+            background: #1F2937;
+        }
+        .dark-section .data-table th {
+            background: #374151;
+            color: var(--blanco);
+        }
+        .dark-section .data-table td {
+            color: #D1D5DB;
+            border-bottom-color: #374151;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: var(--gris-claro);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .stat-val {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--magenta);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dark-section .stat-card {
+            background: #1F2937;
+            border-color: #374151;
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background: var(--magenta-soft);
+            border-left: 4px solid var(--magenta);
+            padding: 1.5rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 1.5rem 0;
+        }
+        
+        .dark-section .highlight {
+            background: rgba(204, 0, 102, 0.1);
+            color: var(--blanco);
+        }
+
+        /* ===== SISTEMA PYMES ===== */
+        .sistema-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .sistema-card {
+            background: var(--blanco);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .sistema-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .sistema-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--negro);
+        }
+        
+        .sistema-card .icon {
+            font-size: 2rem;
+        }
+        
+        .sistema-card ul {
+            padding-left: 1.25rem;
+        }
+        
+        .sistema-card li {
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+        
+        .dark-section .sistema-card {
+            background: #1F2937;
+            border-color: #374151;
+        }
+        
+        .dark-section .sistema-card h3 {
+            color: var(--blanco);
+        }
+
+        /* ===== OFERTA ESPECIAL ===== */
+        .oferta-especial {
+            text-align: center;
+        }
+        
+        .oferta-card {
+            background: var(--blanco);
+            border: 3px solid var(--magenta);
+            border-radius: var(--radius);
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .dark-section .oferta-card {
+            background: #1F2937;
+            color: var(--blanco);
+        }
+        
+        .precio-container {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .precio-normal {
+            text-decoration: line-through;
+            color: #9CA3AF;
+            font-size: 1.5rem;
+        }
+        
+        .precio-oferta {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--magenta);
+        }
+        
+        .detalles-oferta {
+            background: var(--gris-claro);
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin-top: 2rem;
+            text-align: left;
+            border-left: 4px solid var(--magenta);
+        }
+        
+        .dark-section .detalles-oferta {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* ===== BOTONES ORIGINALES ===== */
+        .cta-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+        
+        .btn {
+            padding: 1.25rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+            min-width: 280px;
+            font-family: 'Rubik', sans-serif;
+            display: inline-block;
+        }
+        
+        .btn-confirmar {
+            background: var(--magenta);
+            color: var(--blanco);
+            box-shadow: 0 4px 15px rgba(204, 0, 102, 0.4);
+        }
+        
+        .btn-confirmar:hover {
+            background: var(--magenta-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(204, 0, 102, 0.5);
+        }
+        
+        .btn-dudas {
+            background: transparent;
+            border: 2px solid var(--gris-medio);
+            color: var(--negro);
+        }
+        
+        .dark-section .btn-dudas {
+            border-color: #4B5563;
+            color: var(--blanco);
+        }
+        
+        .btn-dudas:hover {
+            border-color: var(--magenta);
+            color: var(--magenta);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .header { padding: 4rem 0 2rem; }
+            section { padding: 3rem 0; }
+            .sistema-cards { grid-template-columns: 1fr; }
+            .oferta-card, .sistema-card { padding: 1.5rem; }
+            .btn { width: 100%; min-width: auto; }
+            .cta-container { flex-direction: column; }
+            .precio-container { flex-direction: column; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hook-section">
+        <div class="container">
+            <h2>¿Sigues compitiendo por precio mientras Domino's se lleva tus clientes?</h2>
+            <p>Este reporte revela cómo Masa Estelar puede facturar $200,000/mes en Tepic usando un sistema que ya existe, sin estar "pegado" al negocio 24/7.</p>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <span class="badge">REPORTE ESTRATÉGICO 2026</span>
+            <h1>Estudio de Mercado y Diagnóstico Integral</h1>
+            <p class="subtitle">Análisis profundo para <strong style="color: var(--magenta);">Masa Estelar Pizzería</strong></p>
+            <p style="font-size: 0.9rem; color: #6B7280; margin-top: 1rem;">Folio: PYME-9600 • Tepic, Nayarit • Confidencial</p>
+        </div>
+    </header>
+
+    <!-- ===== ESTUDIO DE MERCADO COMPLETO ===== -->
+    <section id="mercado">
+        <div class="container">
+            <h2>1. Estudio de Mercado Completo</h2>
+            <p class="subtitle" style="margin-bottom: 2rem;">Análisis detallado del sector en Tepic, la competencia real y las oportunidades ocultas para Masa Estelar.</p>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        1.1 Contexto del Mercado: Tepic y Nayarit
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <h3>La Realidad del Consumo en Tepic</h3>
+                            <p>Tepic, con una población activa de más de 425,000 habitantes, es el centro neurálgico del consumo en Nayarit. Los datos de 2024-2025 revelan patrones agresivos:</p>
+                            
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <span class="stat-val">145M</span>
+                                    <span>Pizzas consumidas al año en México</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-val">70%</span>
+                                    <span>Consumo concentrado Vie-Dom</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-val">63%</span>
+                                    <span>Prefiere Delivery vs. Comer en Local</span>
+                                </div>
+                            </div>
+
+                            <h4>La Pizza: El Nuevo "Taco" del Fin de Semana</h4>
+                            <p>En Tepic, la pizza ha desplazado a otras opciones de comida rápida para reuniones familiares en casa debido a su formato "compartible". El ticket promedio nacional es de $164 pesos, pero en el sector artesanal/premium sube a $250+.</p>
+                            <p><strong>El Factor Clave:</strong> El 98% de las búsquedas de "qué cenar hoy" en Tepic inician en un teléfono móvil (Google Maps o Redes Sociales).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        1.2 Análisis de Competencia: ¿Contra quién peleas?
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Tu competencia no es solo quien vende pizza, es quien captura la atención de tu cliente.</p>
+                            
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Competidor</th>
+                                        <th>Categoría</th>
+                                        <th>Ticket Promedio</th>
+                                        <th>Fortaleza / Debilidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Domino's Pizza</strong></td>
+                                        <td>Cadena Global</td>
+                                        <td>$170</td>
+                                        <td>✅ Tecnología y rapidez<br>❌ Sabor industrial "de cartón"</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Amore Pizza</strong></td>
+                                        <td>Local</td>
+                                        <td>$145</td>
+                                        <td>✅ Precio accesible<br>❌ Marca genérica, sin diferenciación</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pizzeta</strong></td>
+                                        <td>Local</td>
+                                        <td>$200 (Combos)</td>
+                                        <td>✅ Posicionamiento claro<br>❌ Calidad media</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Masa Estelar</strong></td>
+                                        <td><strong>Local Premium</strong></td>
+                                        <td><strong>$270</strong></td>
+                                        <td>✅ <strong>Calidad superior (Producto)</strong><br>❌ <strong>Invisibilidad Digital (Marketing)</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="highlight">
+                                <strong>Conclusión Crítica:</strong> Con un ticket de $270, Masa Estelar NO puede competir por precio. Tienes que competir por <strong>Experiencia, Calidad y Marca</strong>. Si tu cliente no percibe "premium" en tu Instagram o Google Maps, sentirá que $270 es caro comparado con Domino's.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        1.3 Tendencias 2026: Lo que el cliente pide
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>El mercado de la pizza se está dividiendo en dos extremos:</p>
+                            <ol>
+                                <li><strong>Commodity Barato:</strong> Little Caesars ($99 pesos). Guerra de precios.</li>
+                                <li><strong>Experiencia Artesanal:</strong> Pizza de autor, ingredientes frescos, masa madre o procesos lentos ($250+).</li>
+                            </ol>
+                            <p>Masa Estelar pertenece al grupo 2. Las tendencias para 2026 favorecen lo local, los ingredientes frescos de Nayarit y la personalización. El cliente está dispuesto a pagar más si siente que apoya a un negocio local de calidad, pero exige una experiencia de compra digital fluida (pedir fácil por WhatsApp o App).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        1.4 Perfil del Cliente Premium de Tepic
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <h3>¿Quién está dispuesto a pagar $270 por tu pizza?</h3>
+                            <p>El cliente que busca algo diferente a Domino's y que justifica tu precio premium tiene un perfil específico:</p>
+                            
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <span class="stat-val">25-55</span>
+                                    <span>Edad principal (Familias, Parejas)</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-val">60%</span>
+                                    <span>Mujeres (Decisoras de compra familiar)</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-val">$15k-30k</span>
+                                    <span>Ingreso familiar mensual (Clase media)</span>
+                                </div>
+                            </div>
+
+                            <h4>Comportamiento de Compra:</h4>
+                            <ul>
+                                <li><strong>Motivación:</strong> Buscan "darse un gusto" o "no cocinar" los fines de semana.</li>
+                                <li><strong>Decisión:</strong> Influenciada por fotos atractivas en redes sociales o recomendaciones de amigos.</li>
+                                <li><strong>Barrera:</strong> Miedo a que la pizza no cumpla expectativas por el precio.</li>
+                                <li><strong>Valoración:</strong> Calidad, rapidez de entrega y presentación por encima de todo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        1.5 Oportunidades Específicas para Masa Estelar
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <h3>Espacios en el mercado que nadie está cubriendo</h3>
+                            
+                            <h4>1. Pizza para Corporativos en Tepic</h4>
+                            <p>Ningún competidor local ofrece catering de pizza para oficinas de manera profesional. Hay al menos 50 empresas medianas en Tepic que podrían ser clientes recurrentes para desayunos o juntas.</p>
+                            
+                            <h4>2. Pizza "Experiencia" (Talleres)</h4>
+                            <p>Ofrecer talleres de "Crea tu propia pizza" para familias o eventos privados es un nicho premium sin competencia. Ticket promedio: $350+ por persona.</p>
+                            
+                            <h4>3. Línea Saludable</h4>
+                            <p>Pizza sin gluten, vegana o baja en carbohidratos. Segmento en crecimiento con alta disposición a pagar (ticket $300+).</p>
+                            
+                            <div class="highlight">
+                                <strong>Ventana de Oportunidad:</strong> La competencia local en Tepic está dormida en marketing digital. Masa Estelar puede posicionarse como la pizzería "moderna y premium" de la ciudad antes de que otro lo haga.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        1.6 Riesgos del Mercado
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <h3>Lo que puede frenar tu crecimiento si no actúas</h3>
+                            
+                            <h4>Riesgos Competitivos:</h4>
+                            <ul>
+                                <li><strong>Guerra de precios:</strong> Cadenas como Domino's pueden bajar precios temporalmente para ganar mercado.</li>
+                                <li><strong>Entrada de nueva competencia:</strong> Otro emprendedor puede abrir una pizzería artesanal con mejor marketing digital.</li>
+                            </ul>
+                            
+                            <h4>Riesgos Económicos:</h4>
+                            <ul>
+                                <li><strong>Inflación de insumos:</strong> Harina, queso y embutidos pueden subir de precio, comprimiendo tu margen.</li>
+                                <li><strong>Reducción del poder adquisitivo:</strong> Si la economía en Tepic se contrae, tu cliente premium reducirá gastos.</li>
+                            </ul>
+                            
+                            <h4>Riesgos Operativos:</h4>
+                            <ul>
+                                <li><strong>Dependencia del dueño:</strong> Si tú no estás, el negocio se detiene (cuello de botella crítico).</li>
+                                <li><strong>Calidad inconsistente:</strong> Sin procesos documentados, la calidad de la pizza puede variar.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DIAGNÓSTICO COMPLETO ===== -->
+    <section id="diagnostico" class="dark-section">
+        <div class="container">
+            <h2>2. Diagnóstico de Situación Actual</h2>
+            <p class="subtitle">Hemos analizado tu negocio a fondo. Aquí están las razones exactas por las que no estás creciendo al ritmo que deberías.</p>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        2.1 Invisibilidad Digital: El Costo del Silencio
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <h3>El problema nº 1: "Si no te veo, no existes"</h3>
+                            <p>Hicimos pruebas de búsqueda en Tepic. Buscamos "Pizzería en Santateresita" y "Mejor pizza Tepic".</p>
+                            <ul>
+                                <li><strong>Google Maps:</strong> Tu ficha no aparece en los primeros resultados o carece de la optimización necesaria (reseñas recientes, fotos de alta calidad del menú, horarios confirmados). <strong>Consecuencia:</strong> Regalas el 40% de clientes nuevos a la competencia.</li>
+                                <li><strong>Sitio Web:</strong> Usas OlaClick. Es funcional para pedir, pero visualmente genérico. No transmite la justificación de un ticket de $270. Parece una pizzería estándar.</li>
+                                <li><strong>Redes Sociales:</strong> Falta consistencia. No hay una narrativa visual que "antoje". Hoy en día, la comida entra por los ojos en Instagram y TikTok.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        2.2 Cuello de Botella Operativo: "Falta de Tiempo"
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Mencionaste que tu reto principal es el TIEMPO. Este es el síntoma clásico de un negocio que opera manualmente.</p>
+                            <p><strong>El diagnóstico es duro pero real:</strong> Actualmente, Milton ES el sistema. Si tú no estás, la calidad baja o las ventas se detienen.</p>
+                            <ul style="list-style-type: disc; margin-left: 1rem;">
+                                <li>Estás atrapado en la operación diaria (hacer pizzas, cobrar, limpiar).</li>
+                                <li>No tienes tiempo para la estrategia (marketing, alianzas, crecimiento).</li>
+                            </ul>
+                            <div class="highlight">
+                                <strong>La Solución:</strong> No necesitas trabajar más horas. Necesitas sistemas digitales que vendan por ti (automatización de WhatsApp, pedidos online autónomos) para liberar tu tiempo.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        2.3 La Brecha Financiera (Dinero sobre la mesa)
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Basado en el tráfico de la zona y el ticket promedio de $270, estimamos el costo de oportunidad:</p>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <span class="stat-val">$80k - $120k</span>
+                                    <span>Ingresos mensuales adicionales PERDIDOS</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-val">30-40</span>
+                                    <span>Clientes nuevos por semana que no te encuentran</span>
+                                </div>
+                            </div>
+                            <p>Cada día que Masa Estelar pasa sin un sistema de marketing activo, estás perdiendo dinero frente a cadenas que sí invierten en publicidad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        2.4 Análisis de Presencia Digital Actual
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <h3>Evaluación de cada canal (Puntuación 1-10)</h3>
+                            
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Canal Digital</th>
+                                        <th>Estado Actual</th>
+                                        <th>Puntuación</th>
+                                        <th>Impacto en Ventas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Google Maps</strong></td>
+                                        <td>Invisible o no optimizado</td>
+                                        <td><strong style="color: #EF4444;">3/10</strong></td>
+                                        <td>Crítico (-40% clientes)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Instagram</strong></td>
+                                        <td>Contenido irregular, sin estrategia visual</td>
+                                        <td><strong style="color: #F59E0B;">5/10</strong></td>
+                                        <td>Moderado (-20% conversión)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>TikTok</strong></td>
+                                        <td>Inexistente (plataforma clave para comida)</td>
+                                        <td><strong style="color: #EF4444;">0/10</strong></td>
+                                        <td>Alto (-30% audiencia joven)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>WhatsApp Business</strong></td>
+                                        <td>Básico, sin automatización</td>
+                                        <td><strong style="color: #F59E0B;">4/10</strong></td>
+                                        <td>Alto (pérdida de ventas por respuesta lenta)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="highlight">
+                                <strong>Diagnóstico Visual:</strong> Un negocio premium necesita fotos premium. Las fotos de celular con mala luz no justifican un ticket de $270. Invertir en contenido visual profesional es <strong>no es un gasto, es una inversión directa en ventas</strong>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        2.5 Falta de Sistemas y Procesos
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <h3>Operas con métodos que limitan el crecimiento</h3>
+                            <p>Identificamos 5 procesos críticos que están frenando tu escalabilidad:</p>
+                            
+                            <ol>
+                                <li><strong>Toma de pedidos manual:</strong> Depende 100% de ti o de alguien contestando el teléfono.</li>
+                                <li><strong>Sin base de datos de clientes:</strong> No puedes hacer marketing dirigido ni fidelizar.</li>
+                                <li><strong>Gestión de inventario básica:</strong> Pérdida de control sobre costos y desperdicios.</li>
+                                <li><strong>Sin medición de métricas:</strong> No sabes cuál es tu cliente más rentable o tu horario pico.</li>
+                                <li><strong>Ausencia de delegación efectiva:</strong> No hay manuales de procedimiento para tu equipo.</li>
+                            </ol>
+                            
+                            <p><strong>Resultado:</strong> Tu negocio tiene un "techo de cristal" que no te permite crecer más allá de lo que tus horas personales permiten.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        2.6 Nivel de Preparación del Negocio
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <h3>Evaluación General: 4.5/10</h3>
+                            
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <span class="stat-val">6/10</span>
+                                    <span>Preparación Técnica (Producto, Ubicación)</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-val">3/10</span>
+                                    <span>Preparación Operativa (Sistemas, Procesos)</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="stat-val">4/10</span>
+                                    <span>Preparación Estratégica (Marketing, Crecimiento)</span>
+                                </div>
+                            </div>
+
+                            <div class="highlight">
+                                <strong>Veredicto Final:</strong> Masa Estelar es un negocio viable con ejecución deficiente. Tienes un producto premium ($270) con presencia digital de negocio informal. El problema no es el QUÉ vendes, sino el CÓMO lo comunicas y operas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SISTEMA PYMES TEPIC 2026 (ORIGINAL) ===== -->
+    <section id="sistema">
+        <div class="container">
+            <h2>🎁 Qué incluye el Sistema PYMES Tepic 2026</h2>
+            <p class="subtitle" style="text-align: center; margin-bottom: var(--space-md);">Una solución integral para transformar tu negocio digitalmente</p>
+            
+            <div class="sistema-cards">
+                <div class="sistema-card">
+                    <h3><span class="icon">🧠</span> Módulo Estrategia</h3>
+                    <ul>
+                        <li>Estudio de Mercado (Espionaje)</li>
+                        <li>Base de Datos 100k+ Clientes</li>
+                        <li>IA Propietaria de Análisis</li>
+                        <li>Benchmark vs Competencia</li>
+                    </ul>
+                </div>
+                
+                <div class="sistema-card">
+                    <h3><span class="icon">🎬</span> Módulo Creativo</h3>
+                    <ul>
+                        <li>4 Videos Profesionales (Cine)</li>
+                        <li>8 TikToks Virales (Guionizados)</li>
+                        <li>8 Diseños Premium para Feed</li>
+                        <li>Rebranding Visual 2026</li>
+                    </ul>
+                </div>
+                
+                <div class="sistema-card">
+                    <h3><span class="icon">⚙</span> Módulo Tech</h3>
+                    <ul>
+                        <li>Google Maps Verificado</li>
+                        <li>Gestión de 3 Redes Sociales</li>
+                        <li>Sistema de Facturación Automatizado</li>
+                        <li><strong style="color: var(--magenta);">BONUS:</strong> Mes 4 GRATIS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OFERTA ESPECIAL (ORIGINAL) ===== -->
+    <section id="oferta" class="dark-section">
+        <div class="container">
+            <div class="oferta-especial">
+                <h2>🧾 Oferta Especial de Apartado</h2>
+                <p class="subtitle" style="color: #E5E7EB; margin-bottom: var(--space-md);">Solo Hoy - Exclusivo para clientes que toman acción inmediata</p>
+                
+                <div class="oferta-card">
+                    <h3 style="color: var(--blanco);">Invierte en el crecimiento de tu negocio</h3>
+                    
+                    <div class="precio-container">
+                        <div class="precio-normal">Inversión normal: $8,000 MXN/mes</div>
+                        <div class="precio-oferta">Oferta Hoy: $2,999 MXN</div>
+                    </div>
+                    
+                    <p><strong>Si apartas HOY tu lugar:</strong></p>
+                    
+                    <div class="detalles-oferta">
+                        <ul>
+                            <li><strong>Primer pago:</strong> $2,999 MXN (hoy)</li>
+                            <li><strong>Segundo pago en 30 días:</strong> $4,001 MXN</li>
+                            <li>Con eso completas tu primer mes y activamos todo tu sistema</li>
+                            <li>Después la inversión mensual regular queda en $8,000 MXN</li>
+                        </ul>
+                        
+                        <p style="margin-top: var(--space-sm); font-style: italic; color: var(--negro);">
+                            <strong>Nota:</strong> Esta oferta solo está disponible hoy. Mañana el precio vuelve a $8,000 MXN/mes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA FINAL CON BOTONES ORIGINALES ===== -->
+    <section id="cta">
+        <div class="container">
+            <div style="text-align: center; padding: var(--space-lg) 0;">
+                <h2>🎯 Toma Acción Ahora</h2>
+                <p style="max-width: 800px; margin: 0 auto var(--space-md); font-size: 1.125rem;">
+                    Has visto el análisis completo de tu negocio. Sabes exactamente dónde están las oportunidades y los riesgos. 
+                    Ahora es el momento de tomar una decisión estratégica para el crecimiento de Masa Estelar en 2026.
+                </p>
+                
+                <div class="cta-container">
+                    <a href="https://wa.me/523112260199?text=Hola%20Aurora,%20ya%20revisé%20mi%20estudio%20y%20diagnóstico.%20Quiero%20avanzar%20con%20el%20paquete%20PYMES%20Tepic%202026." 
+                       target="_blank" 
+                       class="btn btn-confirmar">
+                        Quiero trabajar con Lázaro
+                    </a>
+                    
+                    <a href="https://wa.me/523112260199?text=Hola%20Aurora,%20revisé%20mi%20reporte%20y%20tengo%20algunas%20dudas.%20¿Me%20ayudas?" 
+                       target="_blank" 
+                       class="btn btn-dudas">
+                        Gracias, tengo una duda
+                    </a>
+                </div>
+                
+                <p style="margin-top: var(--space-md); color: #6B7280; font-size: 0.875rem;">
+                    Al hacer clic en cualquier botón, se abrirá WhatsApp con un mensaje prellenado. Solo debes enviarlo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 3rem 0; background-color: var(--negro); color: #6B7280; font-size: 0.85rem;">
+        <div class="container">
+            <p><strong>Lázaro Marketing</strong> • Socios de Transformación Digital para Restaurantes</p>
+            <p style="margin-top: 0.5rem;">Documento Confidencial • Propiedad de Masa Estelar Pizzería</p>
+            <p style="margin-top: 2rem; font-size: 0.75rem;">© 2026 Sistema Integral de Crecimiento PYME</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            
+            // Toggle active class
+            header.classList.toggle('active');
+            
+            // Toggle height
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        
+        // Abrir el primer acordeón de cada sección
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstAccordions = document.querySelectorAll('.accordion .accordion-item:first-child .accordion-header');
+            firstAccordions.forEach(header => {
+                header.classList.add('active');
+                const content = header.nextElementSibling;
+                content.style.maxHeight = content.scrollHeight + "px";
+                const icon = header.querySelector('.accordion-icon');
+                icon.style.transform = 'rotate(180deg)';
+            });
+        });
+    </script>
+</body>
+</html>
