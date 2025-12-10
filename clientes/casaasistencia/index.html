@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta de Marketing | Lázaro Marketing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== VARIABLES LÁZARO MARKETING ===== */
+        :root {
+            --lazaro-pink: #CC0066;
+            --negro-puro: #000000;
+            --negro-rich: #050505;
+            --blanco: #FFFFFF;
+            --gris-frio: #9CA3AF;
+            --gris-claro: #F5F5F7;
+            --borde: #E5E7EB;
+            
+            --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --sombra-media: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --radio-borde: 12px;
+            
+            --font-titulo: 'Montserrat', sans-serif;
+            --font-cuerpo: 'Poppins', sans-serif;
+        }
+
+        /* ===== RESET Y BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-cuerpo);
+            background-color: var(--blanco);
+            color: #333333;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* ===== LAYOUT ===== */
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .seccion {
+            padding: 5rem 0;
+        }
+
+        /* ===== BLOQUE 1: HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--borde);
+        }
+
+        .header-contenido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: var(--font-titulo);
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--negro-puro);
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--lazaro-pink);
+        }
+
+        .info-cliente {
+            text-align: right;
+        }
+
+        .cliente-nombre {
+            font-weight: 700;
+            color: var(--negro-puro);
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cliente-detalles {
+            color: var(--gris-frio);
+            font-size: 0.95rem;
+        }
+
+        /* ===== BLOQUE 2: HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, rgba(204,0,102,0.03) 0%, rgba(255,255,255,1) 100%);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .titulo-hero {
+            font-family: var(--font-titulo);
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--negro-puro);
+        }
+
+        .subtitulo-hero {
+            font-size: 1.4rem;
+            color: var(--gris-frio);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+        }
+
+        .intro-texto {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            padding: 1.5rem;
+            background: var(--blanco);
+            border-radius: var(--radio-borde);
+            box-shadow: var(--sombra-suave);
+        }
+
+        /* ===== BLOQUE 3: TRES PILARES ===== */
+        .pilares {
+            background-color: var(--blanco);
+        }
+
+        .pilares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pilar-card {
+            background: var(--blanco);
+            border: 1px solid var(--borde);
+            border-radius: var(--radio-borde);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .pilar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-media);
+            border-color: var(--lazaro-pink);
+        }
+
+        .pilar-icono {
+            font-size: 2.5rem;
+            color: var(--lazaro-pink);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            background: rgba(204, 0, 102, 0.1);
+        }
+
+        /* ===== BLOQUE 4: ENTREGABLES ===== */
+        .entregables {
+            background-color: var(--gris-claro);
+        }
+
+        .lista-entregables {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--blanco);
+            border-radius: var(--radio-borde);
+            padding: 2.5rem;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .entregable-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--borde);
+        }
+
+        .entregable-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .check-icon {
+            color: #10B981;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ===== BLOQUE 5: COTIZACIÓN ===== */
+        .cotizacion {
+            background-color: var(--blanco);
+        }
+
+        .paquetes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .paquete-card {
+            border: 2px solid var(--borde);
+            border-radius: var(--radio-borde);
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            background: var(--blanco);
+        }
+
+        .paquete-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-media);
+        }
+
+        .paquete-recomendado {
+            border-color: var(--lazaro-pink);
+            border-width: 2px;
+        }
+
+        .badge-recomendado {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--lazaro-pink);
+            color: var(--blanco);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .precio-box {
+            text-align: center;
+            border: 1px solid var(--borde);
+            padding: 1.5rem;
+            border-radius: var(--radio-borde);
+            margin: 1.5rem 0;
+            background: var(--gris-claro);
+        }
+
+        .precio-tachado {
+            text-decoration: line-through;
+            color: var(--gris-frio);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .precio-final {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--lazaro-pink);
+            display: block;
+        }
+
+        /* ===== BLOQUE 6: CRONOGRAMA ===== */
+        .cronograma {
+            background-color: var(--gris-claro);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-mes {
+            width: 100px;
+            flex-shrink: 0;
+            font-weight: 700;
+            color: var(--lazaro-pink);
+            font-size: 1.2rem;
+        }
+
+        .timeline-contenido {
+            flex: 1;
+            background: var(--blanco);
+            padding: 1.5rem;
+            border-radius: var(--radio-borde);
+            box-shadow: var(--sombra-suave);
+            border-left: 4px solid var(--lazaro-pink);
+        }
+
+        /* ===== BLOQUE 7: CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(204,0,102,0.05) 0%, rgba(255,255,255,1) 100%);
+            text-align: center;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: var(--lazaro-pink);
+            color: var(--blanco);
+            font-family: var(--font-cuerpo);
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(204, 0, 102, 0.3);
+            margin-top: 1.5rem;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(204, 0, 102, 0.4);
+        }
+
+        /* ===== BLOQUE 8: FOOTER ===== */
+        .footer {
+            background-color: var(--negro-rich);
+            color: var(--blanco);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .contenedor {
+                padding: 0 16px;
+            }
+            
+            .seccion {
+                padding: 3rem 0;
+            }
+            
+            .header-contenido {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .info-cliente {
+                text-align: center;
+            }
+            
+            .titulo-hero {
+                font-size: 2.2rem;
+            }
+            
+            .subtitulo-hero {
+                font-size: 1.2rem;
+            }
+            
+            .pilares-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .paquetes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-mes {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-hero {
+                font-size: 1.8rem;
+            }
+            
+            .pilar-card,
+            .paquete-card,
+            .lista-entregables {
+                padding: 1.5rem;
+            }
+            
+            .btn-cta {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BLOQUE 1: HEADER -->
+    <header class="header">
+        <div class="contenedor header-contenido">
+            <div class="logo">LAZARO<span>MARKETING</span></div>
+            <div class="info-cliente">
+                <div class="cliente-nombre">Cecilia Medina Peralta</div>
+                <div class="cliente-detalles">
+                    Proyecto: Estrategia de Lanzamiento & Posicionamiento<br>
+                    Ubicación: Centro Histórico, Tepic (Calle Puebla)<br>
+                    Fecha: Diciembre 2025
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BLOQUE 2: HERO SECTION -->
+    <section class="hero seccion">
+        <div class="contenedor">
+            <h1 class="titulo-hero">Más que una casa de asistencia, un hogar seguro en Tepic</h1>
+            <p class="subtitulo-hero">Estrategia integral de Marketing para generar confianza en padres y comunidad para estudiantes</p>
+            
+            <div class="intro-texto">
+                Hola, Cecilia. En Lázaro Marketing entendemos que este proyecto es especial. No buscamos marketing masivo; buscamos llegar a las 7 familias correctas. Nuestro enfoque para los meses de Diciembre, Enero y Febrero es transmitir seguridad, transparencia y calidez, aprovechando la excelente ubicación en Calle Puebla para llenar la casa con el perfil ideal de estudiantes.
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 3: TRES PILARES -->
+    <section class="pilares seccion">
+        <div class="contenedor">
+            <h2 style="font-family: var(--font-titulo); text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">
+                Los 3 Pilares de la Estrategia
+            </h2>
+            <p style="text-align: center; color: var(--gris-frio); max-width: 600px; margin: 0 auto 2rem;">
+                Fundamentos para construir confianza y llenar tu casa de estudiantes
+            </p>
+            
+            <div class="pilares-grid">
+                <!-- Pilar 1 -->
+                <div class="pilar-card">
+                    <div class="pilar-icono">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 style="font-family: var(--font-titulo); margin-bottom: 1rem;">Seguridad para los Padres</h3>
+                    <p style="color: #555;">
+                        A través de Google Maps y recorridos transparentes, daremos a los padres foráneos la tranquilidad de saber exactamente dónde vivirán sus hijas.
+                    </p>
+                </div>
+                
+                <!-- Pilar 2 -->
+                <div class="pilar-card">
+                    <div class="pilar-icono">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 style="font-family: var(--font-titulo); margin-bottom: 1rem;">Ubicación Estratégica</h3>
+                    <p style="color: #555;">
+                        Resaltaremos la ventaja de vivir en el Centro (Calle Puebla entre Mina y Miñón): cercanía a transporte, comercio y seguridad.
+                    </p>
+                </div>
+                
+                <!-- Pilar 3 -->
+                <div class="pilar-card">
+                    <div class="pilar-icono">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 style="font-family: var(--font-titulo); margin-bottom: 1rem;">Comunidad Estudiantil</h3>
+                    <p style="color: #555;">
+                        No vendemos camas, ofrecemos un espacio de crecimiento y convivencia sana entre mujeres con metas similares.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 4: ENTREGABLES MENSUALES -->
+    <section class="entregables seccion">
+        <div class="contenedor">
+            <h2 style="font-family: var(--font-titulo); text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">
+                Entregables Mensuales
+            </h2>
+            <p style="text-align: center; color: var(--gris-frio); max-width: 600px; margin: 0 auto 3rem;">
+                Duración de la campaña: Diciembre, Enero y Febrero
+            </p>
+            
+            <div class="lista-entregables">
+                <div class="entregable-item">
+                    <div class="check-icon"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 style="font-family: var(--font-titulo); margin-bottom: 0.5rem;">Gestión de Ecosistema Digital</h4>
+                        <p>Google Maps (Prioridad): Creación y optimización de ficha, gestión de ubicación y reseñas.</p>
+                        <p style="margin-top: 0.5rem;">Redes Sociales: Creación y diseño de perfil en Instagram, Facebook y TikTok.</p>
+                    </div>
+                </div>
+                
+                <div class="entregable-item">
+                    <div class="check-icon"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 style="font-family: var(--font-titulo); margin-bottom: 0.5rem;">Producción de Contenido (Mensual)</h4>
+                        <p><strong>2 a 4 Videos (Reels/TikToks):</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: #555;">
+                            <li>Recorridos "House Tour"</li>
+                            <li>Videos de la zona y beneficios de la ubicación</li>
+                            <li>Clips de estilo de vida estudiantil</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>4 a 8 Posts Estéticos:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: #555;">
+                            <li>Fotografía de espacios</li>
+                            <li>Informativos (Servicios incluidos)</li>
+                            <li>Frases y comunidad</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="entregable-item">
+                    <div class="check-icon"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h4 style="font-family: var(--font-titulo); margin-bottom: 0.5rem;">Creación de Comunidad</h4>
+                        <p>Estrategia de copywriting (textos) enfocada en la convivencia y el respeto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 5: COTIZACIÓN -->
+    <section class="cotizacion seccion">
+        <div class="contenedor">
+            <h2 style="font-family: var(--font-titulo); text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">
+                Cotización y Paquetes
+            </h2>
+            <p style="text-align: center; color: var(--gris-frio); max-width: 800px; margin: 0 auto 2rem;">
+                <em>Nota Especial: Precios preferenciales aplicados por recomendación de la Sra. Dolores Peralta.</em>
+            </p>
+            
+            <div class="paquetes-grid">
+                <!-- Plan 1: RECOMENDADO -->
+                <div class="paquete-card paquete-recomendado">
+                    <div class="badge-recomendado">RECOMENDADO</div>
+                    <h3 style="font-family: var(--font-titulo); text-align: center; margin-bottom: 1rem; font-size: 1.8rem;">
+                        Plan "Confianza Orgánica"
+                    </h3>
+                    <p style="text-align: center; color: #555; margin-bottom: 1.5rem;">
+                        Ideal para conectar con la audiencia joven (Gen Z) y generar confianza auténtica.
+                    </p>
+                    
+                    <div style="background: rgba(204, 0, 102, 0.05); padding: 1rem; border-radius: var(--radio-borde); margin-bottom: 1.5rem;">
+                        <p style="color: #555; margin-bottom: 0.5rem;"><i class="fas fa-camera"></i> <strong>Tecnología:</strong> iPhone 16 Pro Max</p>
+                        <p style="color: #555;"><i class="fas fa-star"></i> <strong>Ventaja:</strong> Contenido real, cercano y "no publicitario"</p>
+                    </div>
+                    
+                    <p style="color: #555; margin-bottom: 1rem;"><i class="fas fa-check"></i> Incluye todos los entregables mensuales</p>
+                    
+                    <div class="precio-box">
+                        <span class="precio-tachado">Precio Regular: $5,500 MXN</span>
+                        <span class="precio-final">Inversión Mensual: $3,999 MXN</span>
+                    </div>
+                </div>
+                
+                <!-- Plan 2 -->
+                <div class="paquete-card">
+                    <h3 style="font-family: var(--font-titulo); text-align: center; margin-bottom: 1rem; font-size: 1.8rem;">
+                        Plan "Producción Cinema"
+                    </h3>
+                    <p style="text-align: center; color: #555; margin-bottom: 1.5rem;">
+                        Calidad tipo televisión o comercial corporativo.
+                    </p>
+                    
+                    <div style="background: rgba(0, 0, 0, 0.05); padding: 1rem; border-radius: var(--radio-borde); margin-bottom: 1.5rem;">
+                        <p style="color: #555; margin-bottom: 0.5rem;"><i class="fas fa-film"></i> <strong>Tecnología:</strong> Cámara Profesional de Cine</p>
+                        <p style="color: #555;"><i class="fas fa-tv"></i> <strong>Enfoque:</strong> Imagen corporativa tradicional</p>
+                    </div>
+                    
+                    <p style="color: #555; margin-bottom: 1rem;"><i class="fas fa-check"></i> Incluye todos los entregables mensuales</p>
+                    
+                    <div class="precio-box">
+                        <span class="precio-tachado">Precio Regular: $7,000 MXN</span>
+                        <span class="precio-final">Inversión Mensual: $4,999 MXN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 6: CRONOGRAMA -->
+    <section class="cronograma seccion">
+        <div class="contenedor">
+            <h2 style="font-family: var(--font-titulo); text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">
+                Cronograma de Trabajo
+            </h2>
+            
+            <div class="timeline">
+                <!-- Mes 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-mes">DICIEMBRE</div>
+                    <div class="timeline-contenido">
+                        <h4 style="font-family: var(--font-titulo); margin-bottom: 0.5rem;">Configuración y Lanzamiento</h4>
+                        <p style="color: #555;">Configuración de Google Maps, grabación de contenido base ("House Tour"), lanzamiento de redes.</p>
+                        <p style="color: var(--lazaro-pink); font-weight: 600; margin-top: 0.5rem;">Objetivo: Notoriedad</p>
+                    </div>
+                </div>
+                
+                <!-- Mes 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-mes">ENERO</div>
+                    <div class="timeline-contenido">
+                        <h4 style="font-family: var(--font-titulo); margin-bottom: 0.5rem;">Campaña de Regreso a Clases</h4>
+                        <p style="color: #555;">Campaña fuerte de "Regreso a Clases", testimonios (si hay) y ventajas de la ubicación.</p>
+                        <p style="color: var(--lazaro-pink); font-weight: 600; margin-top: 0.5rem;">Objetivo: Cierre de ventas</p>
+                    </div>
+                </div>
+                
+                <!-- Mes 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-mes">FEBRERO</div>
+                    <div class="timeline-contenido">
+                        <h4 style="font-family: var(--font-titulo); margin-bottom: 0.5rem;">Mantenimiento y Fidelización</h4>
+                        <p style="color: #555;">Mantenimiento de comunidad y lista de espera para el siguiente ciclo.</p>
+                        <p style="color: var(--lazaro-pink); font-weight: 600; margin-top: 0.5rem;">Objetivo: Fidelización</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 7: CALL TO ACTION -->
+    <section class="cta-section seccion">
+        <div class="contenedor">
+            <h2 style="font-family: var(--font-titulo); text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">
+                ¿Listo para llenar la casa de estudiantes?
+            </h2>
+            <p style="text-align: center; color: var(--gris-frio); max-width: 600px; margin: 0 auto 2rem;">
+                Acepta la propuesta y comencemos a trabajar en tu estrategia de marketing
+            </p>
+            
+            <a href="https://wa.me/523115111139?text=Hola,%20quiero%20aceptar%20la%20propuesta%20de%20marketing%20para%20mi%20casa%20de%20asistencia%20estudiantil" 
+               class="btn-cta" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Contactar a Lázaro Marketing
+            </a>
+        </div>
+    </section>
+
+    <!-- BLOQUE 8: FOOTER -->
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="logo" style="color: var(--blanco); margin-bottom: 1.5rem; font-size: 2rem;">
+                LAZARO<span style="color: var(--lazaro-pink);">MARKETING</span>
+            </div>
+            <p style="color: var(--gris-frio); margin-bottom: 0.5rem;">Tepic, Nayarit</p>
+            <p style="color: var(--gris-frio); font-size: 0.9rem;">
+                <em>Aviso legal: La cotización tiene una vigencia de 15 días.</em>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Animaciones suaves al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Animar elementos con clase 'pilar-card'
+            document.querySelectorAll('.pilar-card, .paquete-card, .entregable-item, .timeline-item').forEach((el) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
